@@ -1,0 +1,11 @@
+[Unit]
+Description=Cardboard DDNS Service
+Wants=ddns.timer
+After=network.target
+
+[Service]
+EnvironmentFile=/etc/cardboard/ddns.conf
+ExecStart=/bin/bash -c '${SOURCE_DIR}/ddns-client.sh --hostname cardboard.cafe --api-key ${API_KEY} --url ddns.cardboard.cafe --secret ${SECRET}'
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,12 @@
+[Unit]
+Description=Cardboard DDNS Timer (15-30 minute interval)
+Requires=ddns.service
+
+[Timer]
+Unit=ddns.service
+OnUnitInactiveSec=15m
+RandomizedDelaySec=15m
+AccuracySec=1s
+
+[Install]
+WantedBy=timers.target

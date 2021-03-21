@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo apt-get install jq -y
+sudo systemctl enable $(pwd)/ddns.service
+sudo systemctl enable $(pwd)/ddns.timer
