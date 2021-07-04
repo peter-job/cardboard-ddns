@@ -1,5 +1,12 @@
 #!/bin/bash
 
-sudo apt-get install jq -y
-sudo systemctl enable $(pwd)/ddns.service
-sudo systemctl enable $(pwd)/ddns.timer
+USER=$(whoami)
+if [[ $USER != "root" ]]; then 
+    echo $USER
+    echo "This script must be run as root!"
+    exit 1
+fi
+
+apt-get install jq -y
+systemctl enable $(pwd)/ddns.service
+systemctl enable $(pwd)/ddns.timer
