@@ -2,4 +2,4 @@ FROM debian:latest
 
 RUN apt-get update -y
 RUN apt-get install jq curl -y
-COPY ddns-client.sh .
+COPY ddns-client /usr/local/bin
